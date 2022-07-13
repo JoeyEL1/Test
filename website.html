@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <meta charset="utf-8">
+     <title>page title</title>
+     <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1 id="header">Header</h1>
+        </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Articles</a></li>        
+        </ul>
+    </nav>
+     <section>
+        <article>
+            <h2>Article Heading</h2>
+            <p>Paragraph...</p>
+            <a href="https://www.google.com/">More information...</a>
+        </article>
+        <form onsubmit="validateForm(event)">
+            <label>Name</label>
+            <input type="text" name="name">
+            <label>email</label>
+            <input type="text" name="email">
+            <button>Submit</button>
+        </form>
+        <script>
+            function validateForm(event){
+                event.preventDefault();
+                const form = event.target;
+                const name = form.querySelector('input[name="name"]').value;
+                if(name.length < 1){
+                    alert("Invalid name");
+                }
+                const email = form.querySelector('input[name="email"]').value;
+                const emailTest = /(.+)@(.+){2,}\.(.+){2,}/;
+
+                if(!emailTest.test(email)){
+                    alert("invalid email");
+                }
+
+                form.submit();
+            }
+
+        </script>
+            </body>
+        </form>
+        <aside id="aside">
+            <h2>Related</h2>
+            <ul>
+                <li><a href="#">Article 1</a></li>
+                <li><a href="#">Article 2</a></li>
+            </ul>
+        </aside>
+    </section>  
+    <footer>
+        <p>Copyright 2050 by nobody. All Rights reserved.</p>
+    </footer> 
+</body>
+<script>
+    document.getElementById('header').innerHTML ='Hello JavaScript';
+    document.getElementById('aside').style.backgroundColor ='green';
+</script>
+</html>
